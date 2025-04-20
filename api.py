@@ -7,13 +7,13 @@ api = Flask(__name__)
 
 CORS(api)
 
-@api.route("/api/v1/root_nodes", methods=["GET"])
+@api.route("/api/v1/todos", methods=["GET"])
 def get_nodes():
     try:
         postgres = get_database_connection()
         cursor = postgres.cursor(cursor_factory=RealDictCursor) 
 
-        cursor.execute("SELECT * FROM nodes WHERE parent is null")
+        cursor.execute("SELECT * FROM todos")
         response = cursor.fetchall()  
 
         return jsonify(response), 200
@@ -26,5 +26,5 @@ def get_nodes():
         postgres.close()
 
 if __name__ == "__main__":
-    api.run(debug=False, host='localhost', port=8000) 
+    api.run(debug=True, host='localhost', port=8000) 
 
