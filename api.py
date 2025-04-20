@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from psycopg2.extras import RealDictCursor
 from database import get_database_connection
+from threading import Thread
 
 
 api = Flask(__name__)
@@ -92,6 +93,9 @@ def post_todo():
 
         heavy_work(title)
 
+        # thread = Thread(target=(heavy_work), args=(title,))
+        # thread.start()
+
         return jsonify(response), 200
         
     except Exception as e:
@@ -145,10 +149,7 @@ def patch_todo(id):
         cursor.close()
         postgres.close()
 
-
-
-
-
 if __name__ == "__main__":
-    api.run(debug=True, host='localhost', port=8000) 
+   api.run(debug=False, host='localhost', port=8000, threaded=False)
+
 
