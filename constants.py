@@ -1,4 +1,0 @@
-DB_HOST='localhost'
-DB_NAME='systems_prod' 
-DB_USER='postgres'
-DB_PASS='postgres'
