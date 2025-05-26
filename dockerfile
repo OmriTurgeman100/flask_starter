@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["python", "your_flask_file.py"]
+CMD ["python", "api.py"]
