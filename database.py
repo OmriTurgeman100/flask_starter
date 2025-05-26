@@ -1,15 +1,15 @@
-from constants import DB_HOST, DB_NAME, DB_USER, DB_PASS
-import psycopg2  
+import os
+import psycopg2
 
-def get_database_connection(): # * config
+def get_database_connection():
     try:
         postgres = psycopg2.connect(
-            host=DB_HOST,
-            database=DB_NAME,
-            user=DB_USER,
-            password=DB_PASS
+            host=os.environ["DB_HOST"],
+            database=os.environ["DB_NAME"],
+            user=os.environ["DB_USER"],
+            password=os.environ["DB_PASS"]
         )
         return postgres
-    
+
     except Exception as e:
-        print(e)
+        print(f"Database connection error: {e}")
