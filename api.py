@@ -153,6 +153,9 @@ def patch_todo(id):
 
 def new_feature():
     print("hey from new feature")
+
+def second_feature():
+    print("hey from new feature")
     
 
 if __name__ == "__main__":
