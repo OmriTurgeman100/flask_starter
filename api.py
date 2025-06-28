@@ -149,6 +149,12 @@ def patch_todo(id):
         cursor.close()
         postgres.close()
 
+
+
+def new_feature():
+    print("hey from new feature")
+    
+
 if __name__ == "__main__":
    api.run(debug=False, host='localhost', port=8000, threaded=False)
 
