@@ -156,6 +156,9 @@ def new_feature():
 
 def second_feature():
     print("hey from new feature")
+
+def third_feature():
+    print("hey from new feature")
     
 
 if __name__ == "__main__":
